@@ -1,0 +1,11 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect y="0" width="1200" height="4" fill="#d4ccf0" opacity="0.5"/>
+  <text x="80" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="64" font-weight="500" fill="#111">Marcus</text>
+  <text x="80" y="320" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" fill="#999" letter-spacing="0.05em">Software Engineer</text>
+  <text x="80" y="400" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" fill="#bbb">Fintech · AI · Experience Design</text>
+  <rect x="80" y="440" width="40" height="3" fill="#c7d8f0" rx="1"/>
+  <rect x="130" y="440" width="40" height="3" fill="#d4ccf0" rx="1"/>
+  <rect x="180" y="440" width="40" height="3" fill="#c2e8d8" rx="1"/>
+  <rect x="230" y="440" width="40" height="3" fill="#f0c7ce" rx="1"/>
+</svg>

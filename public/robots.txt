@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marcus-portfolio-53k.pages.dev/sitemap.xml
