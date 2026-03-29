@@ -1,0 +1,42 @@
+[
+  {
+    "id": "research-ai-ux",
+    "title": "AI & User Experience",
+    "subtitle": "Research Notes",
+    "notes": ["How AI reshapes interface patterns", "Trust calibration in automated systems", "Designing for explainability"],
+    "tags": ["ai"],
+    "url": "#",
+    "colSpan": 2,
+    "rowSpan": 1
+  },
+  {
+    "id": "research-fintech-design",
+    "title": "Fintech Design Patterns",
+    "subtitle": "Industry Analysis",
+    "notes": ["Complexity vs. simplicity in banking UX", "Regulatory constraints as design inputs", "Emerging patterns in wealth management"],
+    "tags": ["fintech"],
+    "url": "#",
+    "colSpan": 1,
+    "rowSpan": 1
+  },
+  {
+    "id": "research-design-systems",
+    "title": "Design Systems at Scale",
+    "subtitle": "Systems Thinking",
+    "notes": ["Component governance models", "Cross-team adoption strategies", "Measuring system health"],
+    "tags": ["experience-design"],
+    "url": "#",
+    "colSpan": 1,
+    "rowSpan": 2
+  },
+  {
+    "id": "research-spatial-interfaces",
+    "title": "Spatial Interfaces",
+    "subtitle": "Exploration",
+    "notes": ["3D as a navigation paradigm", "Depth as information hierarchy", "WebGL for product experiences"],
+    "tags": ["entertainment"],
+    "url": "#",
+    "colSpan": 2,
+    "rowSpan": 1
+  }
+]

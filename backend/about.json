@@ -1,0 +1,42 @@
+[
+  {
+    "id": "about-intro",
+    "title": "Marcus",
+    "subtitle": "Software Engineer & Designer",
+    "notes": ["Building products at the intersection of design and engineering", "Focused on fintech, AI, and experience design", "Based in the UAE"],
+    "tags": [],
+    "url": "#",
+    "colSpan": 2,
+    "rowSpan": 1
+  },
+  {
+    "id": "about-approach",
+    "title": "Approach",
+    "subtitle": "How I Work",
+    "notes": ["User-centered problem solving", "Rapid prototyping & iteration", "Cross-functional collaboration"],
+    "tags": [],
+    "url": "#",
+    "colSpan": 1,
+    "rowSpan": 1
+  },
+  {
+    "id": "about-experience",
+    "title": "Experience",
+    "subtitle": "Career Highlights",
+    "notes": ["Enterprise platforms & consumer apps", "Banking, logistics, and entertainment", "Design systems & product strategy"],
+    "tags": [],
+    "url": "#",
+    "colSpan": 1,
+    "rowSpan": 1
+  },
+  {
+    "id": "about-tools",
+    "title": "Tools & Stack",
+    "subtitle": "What I Use",
+    "notes": ["React, Next.js, TypeScript", "Figma, Framer, Three.js", "Python, Node.js, cloud infra"],
+    "tags": [],
+    "url": "#",
+    "colSpan": 2,
+    "rowSpan": 1
+  }
+]

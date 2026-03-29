@@ -1,7 +1,7 @@
 // --- CONFIGURATION ---
 // Default values - will be overridden by controls
 export const DEFAULT_CONFIG = {
-  gridCols: 8,
+  gridCols: 4,
   itemSize: 2.5,
   gap: 0.4,
 
@@ -13,8 +13,8 @@ export const DEFAULT_CONFIG = {
   dragResistance: 0.25,
 
   // Camera / Zoom
-  zoomIn: 12,
-  zoomOut: 31, // Starting zoom level (configurable via Leva)
+  zoomIn: 9,
+  zoomOut: 20, // Starting zoom level (configurable via Leva)
   zoomDamp: 0.25,
 
   // Visuals

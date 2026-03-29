@@ -5,12 +5,13 @@ import React, {
     useLayoutEffect,
 } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useTexture, Text } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import * as THREE from "three";
 import { easing } from "maath";
 import { CONFIG } from "./gridConfig";
 import { rigState } from "./gridState";
 import { CloseButton } from "../CloseButton";
+import { useWorkNoteTexture, WORK_NOTE_ASPECT } from "./WorkNoteTexture";
 
 export function ProjectTile({
     data,
@@ -27,7 +28,7 @@ export function ProjectTile({
     const titleRef = useRef();
     const subtitleRef = useRef();
     const [hovered, setHovered] = useState(false);
-    const texture = useTexture(data.image_url);
+    const texture = useWorkNoteTexture(data);
     // Animation Refs
     const focusZ = useRef(0);
     const rotationX = useRef(0);
@@ -60,12 +61,10 @@ export function ProjectTile({
 
     const imageDims = useMemo(() => {
         const maxSize = CONFIG.itemSize * 0.9;
-        if (!texture.image) return { width: maxSize, height: maxSize };
-        const imgAspect = texture.image.width / texture.image.height;
-        return imgAspect > 1
-            ? { width: maxSize, height: maxSize / imgAspect }
-            : { width: maxSize * imgAspect, height: maxSize };
-    }, [texture]);
+        return WORK_NOTE_ASPECT > 1
+            ? { width: maxSize, height: maxSize / WORK_NOTE_ASPECT }
+            : { width: maxSize * WORK_NOTE_ASPECT, height: maxSize };
+    }, []);
 
     useFrame((state, delta) => {
         if (!ref.current || isSleep.current) return;
