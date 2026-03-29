@@ -45,13 +45,13 @@ export function InfoPopup({ project, onClose }) {
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: "#fff",
+          background: "var(--bg-popup)",
           borderRadius: "24px",
           width: "90vw",
           maxWidth: "520px",
           maxHeight: "70vh",
           overflow: "auto",
-          boxShadow: "0 24px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05)",
+          boxShadow: "var(--shadow-popup)",
           padding: "40px",
         }}
       >
@@ -63,7 +63,7 @@ export function InfoPopup({ project, onClose }) {
                 fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontSize: "24px",
                 fontWeight: "700",
-                color: "#111",
+                color: "var(--text-primary)",
                 margin: 0,
                 lineHeight: 1.2,
               }}
@@ -74,7 +74,7 @@ export function InfoPopup({ project, onClose }) {
               style={{
                 fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontSize: "13px",
-                color: "#999",
+                color: "var(--text-tertiary)",
                 margin: "6px 0 0 0",
                 letterSpacing: "0.04em",
                 textTransform: "uppercase",
@@ -88,7 +88,7 @@ export function InfoPopup({ project, onClose }) {
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             style={{
-              background: "rgba(0,0,0,0.05)",
+              background: "var(--close-btn-bg)",
               border: "none",
               borderRadius: "50%",
               width: "36px",
@@ -100,7 +100,7 @@ export function InfoPopup({ project, onClose }) {
               flexShrink: 0,
             }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2.5" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -108,7 +108,7 @@ export function InfoPopup({ project, onClose }) {
         </div>
 
         {/* Divider */}
-        <div style={{ height: "1px", background: "rgba(0,0,0,0.06)", margin: "0 0 24px 0" }} />
+        <div style={{ height: "1px", background: "var(--border-divider)", margin: "0 0 24px 0" }} />
 
         {/* Info list */}
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -138,7 +138,7 @@ export function InfoPopup({ project, onClose }) {
                     style={{
                       fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                       fontSize: "14px",
-                      color: "#444",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.5,
                     }}
                   >
@@ -216,7 +216,7 @@ function InfoSection({ title, children }) {
           fontWeight: "600",
           letterSpacing: "0.12em",
           textTransform: "uppercase",
-          color: "#aaa",
+          color: "var(--text-muted)",
           margin: "0 0 10px 0",
         }}
       >

@@ -21,9 +21,9 @@ export function WelcomeCard({ onDismiss, onAbout }) {
       exit={{ opacity: 0, y: 10, scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       style={{
-        background: "#fff",
+        background: "var(--bg-welcome)",
         borderRadius: "20px",
-        boxShadow: "0 8px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04)",
+        boxShadow: "var(--shadow-welcome)",
         padding: "10px 14px",
         display: "flex",
         alignItems: "center",
@@ -54,7 +54,7 @@ export function WelcomeCard({ onDismiss, onAbout }) {
             color: "#fff",
           }}
         >
-          M
+          O
         </span>
       </div>
 
@@ -64,20 +64,20 @@ export function WelcomeCard({ onDismiss, onAbout }) {
           style={{
             fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             fontSize: "13px",
-            color: "#333",
+            color: "var(--text-primary)",
             margin: 0,
             lineHeight: 1.45,
           }}
         >
-          Hi, I'm Marcus — a software engineer based in the UAE,
-          experienced in fintech, AI, and experience design.{" "}
+          Hi, I'm Osied — an independent design director based
+          in the UAE, working across fintech, AI, and experience design.{" "}
           <span
             onClick={(e) => {
               e.stopPropagation();
               onAbout();
             }}
             style={{
-              color: "#666",
+              color: "var(--text-tab)",
               textDecoration: "underline",
               textUnderlineOffset: "2px",
               cursor: "pointer",
@@ -99,7 +99,7 @@ export function WelcomeCard({ onDismiss, onAbout }) {
           cursor: "pointer",
           padding: "4px",
           flexShrink: 0,
-          color: "#bbb",
+          color: "var(--text-muted)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

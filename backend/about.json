@@ -1,42 +1,57 @@
-[
-  {
-    "id": "about-intro",
-    "title": "Marcus",
-    "subtitle": "Software Engineer & Designer",
-    "notes": ["Building products at the intersection of design and engineering", "Focused on fintech, AI, and experience design", "Based in the UAE"],
-    "tags": [],
-    "url": "#",
-    "colSpan": 2,
-    "rowSpan": 1
+{
+  "title": "Osied Shawahin",
+  "subtitle": "Independent Design Director",
+  "intro": "I believe great design is invisible — it gets out of the way and lets people do what they came to do. Over the past decade, I've led design across fintech, enterprise AI, and consumer products, always driven by the same question: how do we make complex things feel simple? From shaping banking platforms used by millions to directing immersive experiences in museums, my work sits at the intersection of strategy, craft, and empathy. I lead teams, build systems, and obsess over the details that turn good products into ones people genuinely enjoy using.",
+  "experience": [
+    {
+      "company": "Emirates NBD",
+      "role": "Design Lead",
+      "period": "2021 – Present",
+      "location": "UAE"
+    },
+    {
+      "company": "R/GA",
+      "role": "Design Director, Experience Design",
+      "period": "2021 – 2022",
+      "location": "Singapore"
+    },
+    {
+      "company": "Baby Lion",
+      "role": "Design Director",
+      "period": "2015 – Present",
+      "location": "Remote"
+    },
+    {
+      "company": "Synechron",
+      "role": "Sr. Product Designer",
+      "period": "2019 – 2020",
+      "location": "Singapore & UAE"
+    },
+    {
+      "company": "Joist / EverCommerce",
+      "role": "Sr. Product Designer",
+      "period": "2018 – 2019",
+      "location": "Canada, Remote"
+    },
+    {
+      "company": "LINE Messenger",
+      "role": "UX Researcher",
+      "period": "2018",
+      "location": "UAE"
+    },
+    {
+      "company": "BUT",
+      "role": "Product Designer",
+      "period": "2017 – 2018",
+      "location": "UAE"
+    }
+  ],
+  "education": {
+    "school": "American University in Dubai",
+    "degree": "B.F.A in Visual Communications, Digital Media",
+    "period": "2011 – 2015"
   },
-  {
-    "id": "about-approach",
-    "title": "Approach",
-    "subtitle": "How I Work",
-    "notes": ["User-centered problem solving", "Rapid prototyping & iteration", "Cross-functional collaboration"],
-    "tags": [],
-    "url": "#",
-    "colSpan": 1,
-    "rowSpan": 1
-  },
-  {
-    "id": "about-experience",
-    "title": "Experience",
-    "subtitle": "Career Highlights",
-    "notes": ["Enterprise platforms & consumer apps", "Banking, logistics, and entertainment", "Design systems & product strategy"],
-    "tags": [],
-    "url": "#",
-    "colSpan": 1,
-    "rowSpan": 1
-  },
-  {
-    "id": "about-tools",
-    "title": "Tools & Stack",
-    "subtitle": "What I Use",
-    "notes": ["React, Next.js, TypeScript", "Figma, Framer, Three.js", "Python, Node.js, cloud infra"],
-    "tags": [],
-    "url": "#",
-    "colSpan": 2,
-    "rowSpan": 1
+  "contact": {
+    "email": "hello@osied.com"
   }
-]
+}

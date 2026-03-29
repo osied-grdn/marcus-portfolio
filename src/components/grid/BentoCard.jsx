@@ -47,7 +47,7 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
       style={{
         gridColumn: isExpanded ? "1 / -1" : `span ${colSpan}`,
         gridRow: isExpanded ? "auto" : `span ${rowSpan}`,
-        background: "#fff",
+        background: "var(--bg-card)",
         cursor: isExpanded ? "default" : "pointer",
         overflow: "hidden",
         position: "relative",
@@ -75,6 +75,18 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
               overflow: "hidden",
             }}
           >
+            {data.image && (
+              <img
+                src={data.image}
+                alt={data.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+            )}
             <motion.div
               style={{
                 position: "absolute",
@@ -92,7 +104,7 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
                 fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontSize: "14px",
                 fontWeight: "500",
-                color: "#111",
+                color: "var(--text-primary)",
                 margin: 0,
                 lineHeight: 1.3,
               }}
@@ -103,7 +115,7 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
               style={{
                 fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontSize: "12px",
-                color: "#999",
+                color: "var(--text-tertiary)",
                 margin: "4px 0 0 0",
                 lineHeight: 1.4,
                 display: "-webkit-box",
@@ -131,7 +143,7 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
                 fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontSize: "32px",
                 fontWeight: "500",
-                color: "#111",
+                color: "var(--text-primary)",
                 margin: 0,
                 lineHeight: 1.2,
               }}
@@ -142,7 +154,7 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
               style={{
                 fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 fontSize: "14px",
-                color: "#999",
+                color: "var(--text-tertiary)",
                 margin: "6px 0 0 0",
                 letterSpacing: "0.01em",
               }}
@@ -158,7 +170,7 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
                 style={{
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   fontSize: "15px",
-                  color: "#555",
+                  color: "var(--text-secondary)",
                   margin: 0,
                   lineHeight: 1.7,
                 }}
@@ -199,18 +211,18 @@ export function BentoCard({ data, index, isExpanded, onToggle, isAnyExpanded }) 
               display: "flex",
               flexDirection: "column",
               gap: "1px",
-              background: "rgba(0,0,0,0.03)",
+              background: "var(--bg-subtle)",
               marginTop: "36px",
             }}
           >
             {isResearchOrAbout ? (
               data.notes && data.notes.map((note, i) => (
-                <div key={i} style={{ padding: "16px 40px", background: "#fff" }}>
+                <div key={i} style={{ padding: "16px 40px", background: "var(--bg-card)" }}>
                   <p
                     style={{
                       fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                       fontSize: "15px",
-                      color: "#555",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.7,
                       margin: 0,
                     }}
@@ -265,7 +277,7 @@ function MetaItem({ label, value }) {
           fontWeight: "600",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
-          color: "#bbb",
+          color: "var(--text-muted)",
           display: "block",
           marginBottom: "4px",
         }}
@@ -276,7 +288,7 @@ function MetaItem({ label, value }) {
         style={{
           fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
           fontSize: "13px",
-          color: "#444",
+          color: "var(--text-secondary)",
           lineHeight: 1.4,
         }}
       >

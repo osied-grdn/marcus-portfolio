@@ -34,11 +34,11 @@ export default function Header() {
                 fontSize: "15px",
                 fontWeight: "700",
                 letterSpacing: "0.12em",
-                color: "#000",
+                color: "var(--text-primary)",
                 textTransform: "uppercase",
               }}
             >
-              MARCUS
+              OSIED
             </span>
             <span
               style={{
@@ -46,7 +46,7 @@ export default function Header() {
                 fontSize: "15px",
                 fontWeight: "300",
                 letterSpacing: "0.12em",
-                color: "#000",
+                color: "var(--text-primary)",
                 textTransform: "uppercase",
               }}
             >
@@ -59,7 +59,7 @@ export default function Header() {
               fontSize: "8px",
               fontWeight: "400",
               letterSpacing: "0.2em",
-              color: "#999",
+              color: "var(--text-tertiary)",
               textTransform: "uppercase",
               marginTop: "-1px",
             }}

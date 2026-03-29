@@ -2,9 +2,9 @@ import Head from "next/head";
 import ProjectGrid from "@/components/grid/ProjectGrid";
 
 const SITE_URL = "https://marcus-portfolio-53k.pages.dev";
-const TITLE = "Marcus — Software Engineer";
+const TITLE = "Osied Shawahin — Independent Design Director";
 const DESCRIPTION =
-  "Software engineer based in the UAE, experienced in fintech, AI, and experience design. Explore projects including Emirates NBD, C3.ai, Grab, and more.";
+  "Independent Design Director based in the UAE. Leading design across fintech, enterprise AI, and experience design. Projects include Emirates NBD, Google, Standard Chartered, and more.";
 
 export default function HomePage() {
   return (
@@ -24,7 +24,7 @@ export default function HomePage() {
         <meta property="og:image" content={`${SITE_URL}/og-image.svg`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Marcus Portfolio" />
+        <meta property="og:site_name" content="Osied Shawahin Portfolio" />
         <meta property="og:locale" content="en_US" />
 
         {/* Twitter Card */}
@@ -34,7 +34,7 @@ export default function HomePage() {
         <meta name="twitter:image" content={`${SITE_URL}/og-image.svg`} />
 
         {/* Additional SEO */}
-        <meta name="author" content="Marcus" />
+        <meta name="author" content="Osied Shawahin" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="robots" content="index, follow" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />

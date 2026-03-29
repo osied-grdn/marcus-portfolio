@@ -8,6 +8,36 @@ const islandTransition = {
   mass: 1,
 };
 
+const THEME_ICONS = {
+  light: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </svg>
+  ),
+  system: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  ),
+  dark: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  ),
+};
+
+const THEME_LABELS = { light: "Light", system: "Auto", dark: "Dark" };
+
 export function UnifiedControlBar({
   currentCollection,
   onSwitch,
@@ -18,8 +48,10 @@ export function UnifiedControlBar({
   onInfoOpen,
   viewMode,
   onToggleView,
+  theme,
+  onCycleTheme,
 }) {
-  const collections = ["Projects", "About", "Research"];
+  const collections = ["Projects", "About"];
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const tagFilters = [
@@ -62,19 +94,17 @@ export function UnifiedControlBar({
               width: "44px",
               height: "44px",
               borderRadius: "50%",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              background:
-                "linear-gradient(135deg, rgba(235, 245, 255, 0.4) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(235, 255, 245, 0.4) 100%)",
+              border: "1px solid var(--border-island)",
+              background: "var(--bg-island)",
               backdropFilter: "blur(40px) saturate(200%)",
               WebkitBackdropFilter: "blur(40px) saturate(200%)",
-              boxShadow:
-                "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
+              boxShadow: "var(--shadow-island)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
               pointerEvents: "auto",
-              color: "#111",
+              color: "var(--text-primary)",
               outline: "none",
             }}
             aria-label="Close"
@@ -106,14 +136,12 @@ export function UnifiedControlBar({
         layout
         transition={islandTransition}
         style={{
-          background:
-            "linear-gradient(135deg, rgba(235, 245, 255, 0.4) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(235, 255, 245, 0.4) 100%)",
+          background: "var(--bg-island)",
           backdropFilter: "blur(40px) saturate(200%)",
           WebkitBackdropFilter: "blur(40px) saturate(200%)",
           borderRadius: "32px",
-          border: "1px solid rgba(255, 255, 255, 0.3)",
-          boxShadow:
-            "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
+          border: "1px solid var(--border-island)",
+          boxShadow: "var(--shadow-island)",
           padding: "6px",
           display: "flex",
           alignItems: "center",
@@ -140,7 +168,7 @@ export function UnifiedControlBar({
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   fontSize: "14px",
                   fontWeight: "600",
-                  color: "#111",
+                  color: "var(--text-primary)",
                   padding: "0 10px",
                   whiteSpace: "nowrap",
                   maxWidth: "260px",
@@ -157,8 +185,8 @@ export function UnifiedControlBar({
                 whileTap={{ scale: 0.95 }}
                 style={{
                   border: "none",
-                  background: "rgba(0,0,0,0.06)",
-                  color: "#555",
+                  background: "var(--bg-overlay)",
+                  color: "var(--text-secondary)",
                   padding: "6px 14px",
                   borderRadius: "14px",
                   fontSize: "12px",
@@ -245,7 +273,7 @@ export function UnifiedControlBar({
                     style={{
                       border: "none",
                       background: "transparent",
-                      color: hasActiveFilter || filtersOpen ? "#000" : "#888",
+                      color: hasActiveFilter || filtersOpen ? "var(--text-active)" : "var(--text-filter)",
                       padding: "0 10px",
                       height: "44px",
                       borderRadius: "14px",
@@ -274,13 +302,42 @@ export function UnifiedControlBar({
                           width: "5px",
                           height: "5px",
                           borderRadius: "50%",
-                          background: "#111",
+                          background: "var(--text-primary)",
                         }}
                       />
                     )}
                   </motion.button>
                 </>
               )}
+
+              {/* Theme toggle */}
+              <Divider />
+              <motion.button
+                layout="position"
+                onClick={onCycleTheme}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.95 }}
+                transition={islandTransition}
+                style={{
+                  border: "none",
+                  background: "transparent",
+                  color: "var(--text-filter)",
+                  padding: "0 10px",
+                  height: "44px",
+                  borderRadius: "14px",
+                  fontSize: "12px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "5px",
+                }}
+              >
+                {THEME_ICONS[theme]}
+                <span className="theme-label">{THEME_LABELS[theme]}</span>
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -301,11 +358,11 @@ export function UnifiedControlBar({
               display: "flex",
               justifyContent: "center",
               pointerEvents: "auto",
-              background: "rgba(255, 255, 255, 0.9)",
+              background: "var(--bg-island-dropdown)",
               backdropFilter: "blur(40px) saturate(200%)",
               WebkitBackdropFilter: "blur(40px) saturate(200%)",
               borderRadius: "20px",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
+              border: "1px solid var(--border-island)",
               boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
               padding: "6px 8px",
               gap: "4px",
@@ -351,11 +408,11 @@ export function UnifiedControlBar({
                 display: "flex",
                 justifyContent: "center",
                 flexWrap: "wrap",
-                background: "rgba(255, 255, 255, 0.9)",
+                background: "var(--bg-island-dropdown)",
                 backdropFilter: "blur(40px) saturate(200%)",
                 WebkitBackdropFilter: "blur(40px) saturate(200%)",
                 borderRadius: "20px",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
+                border: "1px solid var(--border-island)",
                 boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                 padding: "6px 8px",
                 gap: "4px",
@@ -413,6 +470,11 @@ export function UnifiedControlBar({
             display: flex !important;
           }
         }
+        @media (max-width: 600px) {
+          .theme-label {
+            display: none;
+          }
+        }
         @media (max-width: 480px) {
           .control-bar-container {
             bottom: 10px !important;
@@ -441,7 +503,7 @@ function IconButton({ onClick, label, icon, isActive }) {
       layout="position"
       onClick={onClick}
       className="control-button"
-      whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.05)" }}
+      whileHover={{ scale: 1.05, backgroundColor: "var(--bg-muted)" }}
       whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.2 }}
       style={{
@@ -449,8 +511,8 @@ function IconButton({ onClick, label, icon, isActive }) {
         height: "44px",
         borderRadius: "50%",
         border: "none",
-        background: isActive ? "rgba(0,0,0,0.06)" : "transparent",
-        color: "#111",
+        background: isActive ? "var(--bg-overlay)" : "transparent",
+        color: "var(--text-primary)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -470,7 +532,7 @@ function Divider() {
       style={{
         width: "1px",
         height: "24px",
-        background: "rgba(0,0,0,0.08)",
+        background: "var(--border-divider)",
         margin: "0 2px",
         flexShrink: 0,
       }}
@@ -488,7 +550,7 @@ function TabButton({ children, isActive, onClick }) {
         position: "relative",
         border: "none",
         background: "transparent",
-        color: isActive ? "#000" : "#666",
+        color: isActive ? "var(--text-active)" : "var(--text-tab)",
         padding: "8px 16px",
         borderRadius: "20px",
         fontSize: "14px",
@@ -507,12 +569,12 @@ function TabButton({ children, isActive, onClick }) {
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(255, 255, 255, 0.6)",
+            background: "var(--tab-active-bg)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             borderRadius: "20px",
-            border: "1px solid rgba(255, 255, 255, 0.4)",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
+            border: "1px solid var(--tab-active-border)",
+            boxShadow: "var(--tab-active-shadow)",
             zIndex: -1,
           }}
         />
@@ -531,8 +593,8 @@ function FilterChip({ children, isActive, onClick }) {
       style={{
         position: "relative",
         border: "none",
-        background: isActive ? "rgba(0, 0, 0, 0.85)" : "rgba(0, 0, 0, 0.05)",
-        color: isActive ? "#fff" : "#555",
+        background: isActive ? "var(--filter-active-bg)" : "var(--filter-inactive-bg)",
+        color: isActive ? "var(--filter-active-color)" : "var(--filter-inactive-color)",
         padding: "6px 14px",
         borderRadius: "14px",
         fontSize: "12px",

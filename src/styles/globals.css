@@ -1,14 +1,151 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root,
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: rgba(0,0,0,0.02);
+  --bg-muted: rgba(0,0,0,0.05);
+  --bg-subtle: rgba(0,0,0,0.03);
+  --bg-overlay: rgba(0,0,0,0.06);
+  --bg-island: linear-gradient(135deg, rgba(235, 245, 255, 0.4) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(235, 255, 245, 0.4) 100%);
+  --bg-island-dropdown: rgba(255, 255, 255, 0.9);
+  --bg-popup: #fff;
+  --bg-welcome: #fff;
+  --border-island: rgba(255, 255, 255, 0.3);
+  --border-subtle: rgba(0,0,0,0.04);
+  --border-divider: rgba(0,0,0,0.08);
+  --shadow-island: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --shadow-popup: 0 24px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+  --shadow-welcome: 0 8px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
+  --text-primary: #111;
+  --text-secondary: #555;
+  --text-tertiary: #999;
+  --text-muted: #bbb;
+  --text-tab: #666;
+  --text-filter: #888;
+  --text-active: #000;
+  --grid-gap-color: rgba(0,0,0,0.05);
+  --filter-active-bg: rgba(0, 0, 0, 0.85);
+  --filter-active-color: #fff;
+  --filter-inactive-bg: rgba(0, 0, 0, 0.05);
+  --filter-inactive-color: #555;
+  --tab-active-bg: rgba(255, 255, 255, 0.6);
+  --tab-active-border: rgba(255, 255, 255, 0.4);
+  --tab-active-shadow: 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --close-btn-bg: rgba(0,0,0,0.05);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg-card: #141414;
+  --bg-hover: rgba(255,255,255,0.03);
+  --bg-muted: rgba(255,255,255,0.06);
+  --bg-subtle: rgba(255,255,255,0.04);
+  --bg-overlay: rgba(255,255,255,0.08);
+  --bg-island: linear-gradient(135deg, rgba(30, 30, 40, 0.7) 0%, rgba(20, 20, 25, 0.6) 50%, rgba(25, 30, 30, 0.7) 100%);
+  --bg-island-dropdown: rgba(30, 30, 35, 0.95);
+  --bg-popup: #1a1a1a;
+  --bg-welcome: #1a1a1a;
+  --border-island: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-divider: rgba(255,255,255,0.1);
+  --shadow-island: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-popup: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  --shadow-welcome: 0 8px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06);
+  --text-primary: #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #666;
+  --text-muted: #555;
+  --text-tab: #999;
+  --text-filter: #777;
+  --text-active: #fff;
+  --grid-gap-color: rgba(255,255,255,0.06);
+  --filter-active-bg: rgba(255, 255, 255, 0.9);
+  --filter-active-color: #111;
+  --filter-inactive-bg: rgba(255, 255, 255, 0.08);
+  --filter-inactive-color: #aaa;
+  --tab-active-bg: rgba(255, 255, 255, 0.1);
+  --tab-active-border: rgba(255, 255, 255, 0.12);
+  --tab-active-shadow: 0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --close-btn-bg: rgba(255,255,255,0.1);
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  [data-theme="system"] {
+    --bg: #0a0a0a;
+    --bg-card: #141414;
+    --bg-hover: rgba(255,255,255,0.03);
+    --bg-muted: rgba(255,255,255,0.06);
+    --bg-subtle: rgba(255,255,255,0.04);
+    --bg-overlay: rgba(255,255,255,0.08);
+    --bg-island: linear-gradient(135deg, rgba(30, 30, 40, 0.7) 0%, rgba(20, 20, 25, 0.6) 50%, rgba(25, 30, 30, 0.7) 100%);
+    --bg-island-dropdown: rgba(30, 30, 35, 0.95);
+    --bg-popup: #1a1a1a;
+    --bg-welcome: #1a1a1a;
+    --border-island: rgba(255, 255, 255, 0.1);
+    --border-subtle: rgba(255,255,255,0.06);
+    --border-divider: rgba(255,255,255,0.1);
+    --shadow-island: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --shadow-popup: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+    --shadow-welcome: 0 8px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06);
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --text-tertiary: #666;
+    --text-muted: #555;
+    --text-tab: #999;
+    --text-filter: #777;
+    --text-active: #fff;
+    --grid-gap-color: rgba(255,255,255,0.06);
+    --filter-active-bg: rgba(255, 255, 255, 0.9);
+    --filter-active-color: #111;
+    --filter-inactive-bg: rgba(255, 255, 255, 0.08);
+    --filter-inactive-color: #aaa;
+    --tab-active-bg: rgba(255, 255, 255, 0.1);
+    --tab-active-border: rgba(255, 255, 255, 0.12);
+    --tab-active-shadow: 0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --close-btn-bg: rgba(255,255,255,0.1);
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] {
+    --bg: #ffffff;
+    --bg-card: #ffffff;
+    --bg-hover: rgba(0,0,0,0.02);
+    --bg-muted: rgba(0,0,0,0.05);
+    --bg-subtle: rgba(0,0,0,0.03);
+    --bg-overlay: rgba(0,0,0,0.06);
+    --bg-island: linear-gradient(135deg, rgba(235, 245, 255, 0.4) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(235, 255, 245, 0.4) 100%);
+    --bg-island-dropdown: rgba(255, 255, 255, 0.9);
+    --bg-popup: #fff;
+    --bg-welcome: #fff;
+    --border-island: rgba(255, 255, 255, 0.3);
+    --border-subtle: rgba(0,0,0,0.04);
+    --border-divider: rgba(0,0,0,0.08);
+    --shadow-island: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    --shadow-popup: 0 24px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+    --shadow-welcome: 0 8px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
+    --text-primary: #111;
+    --text-secondary: #555;
+    --text-tertiary: #999;
+    --text-muted: #bbb;
+    --text-tab: #666;
+    --text-filter: #888;
+    --text-active: #000;
+    --grid-gap-color: rgba(0,0,0,0.05);
+    --filter-active-bg: rgba(0, 0, 0, 0.85);
+    --filter-active-color: #fff;
+    --filter-inactive-bg: rgba(0, 0, 0, 0.05);
+    --filter-inactive-color: #555;
+    --tab-active-bg: rgba(255, 255, 255, 0.6);
+    --tab-active-border: rgba(255, 255, 255, 0.4);
+    --tab-active-shadow: 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    --close-btn-bg: rgba(0,0,0,0.05);
+    color-scheme: light;
   }
 }
 
@@ -19,11 +156,12 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--text-primary);
+  background: var(--bg);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 *,
@@ -35,10 +173,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

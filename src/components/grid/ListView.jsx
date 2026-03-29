@@ -13,7 +13,7 @@ export function ListView({ items, onSelect }) {
         <thead>
           <tr
             style={{
-              borderBottom: "1px solid rgba(0,0,0,0.08)",
+              borderBottom: "1px solid var(--border-divider)",
             }}
           >
             <th style={thStyle}>Project</th>
@@ -26,29 +26,29 @@ export function ListView({ items, onSelect }) {
               key={item.id}
               onClick={() => onSelect(item.id)}
               style={{
-                borderBottom: "1px solid rgba(0,0,0,0.04)",
+                borderBottom: "1px solid var(--border-subtle)",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(0,0,0,0.02)";
+                e.currentTarget.style.background = "var(--bg-hover)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
               }}
             >
               <td style={tdStyle}>
-                <span style={{ fontSize: "14px", fontWeight: "500", color: "#111" }}>
+                <span style={{ fontSize: "14px", fontWeight: "500", color: "var(--text-primary)" }}>
                   {item.title}
                 </span>
-                <span style={{ fontSize: "12px", color: "#999", marginLeft: "12px" }}>
+                <span style={{ fontSize: "12px", color: "var(--text-tertiary)", marginLeft: "12px" }}>
                   {item.subtitle}
                 </span>
               </td>
               <td style={{ ...tdStyle, textAlign: "right" }}>
-                <span style={{ fontSize: "11px", color: "#bbb" }}>
+                <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>
                   {item.tags && item.tags.length > 0
                     ? item.tags[0].replace("-", " ")
-                    : "—"}
+                    : "\u2014"}
                 </span>
               </td>
             </tr>
@@ -65,7 +65,7 @@ const thStyle = {
   fontWeight: "500",
   letterSpacing: "0.08em",
   textTransform: "uppercase",
-  color: "#bbb",
+  color: "var(--text-muted)",
   padding: "12px 0",
 };
 

@@ -1,13 +1,12 @@
 import React, { useMemo, useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import projects from "../../../backend/projects.json";
-import aboutItems from "../../../backend/about.json";
-import researchItems from "../../../backend/research.json";
 import { UnifiedControlBar } from "../GridUI";
 import { BentoCard } from "./BentoCard";
 import { ListView } from "./ListView";
 import { InfoPopup } from "../InfoPopup";
 import { WelcomeCard } from "../WelcomeCard";
+import { AboutPage } from "../AboutPage";
 
 const matchesFilter = (item, filter) => {
   if (filter === "all") return true;
@@ -21,19 +20,28 @@ export default function ProjectGrid() {
   const [showInfo, setShowInfo] = useState(false);
   const [viewMode, setViewMode] = useState("grid");
   const [showWelcome, setShowWelcome] = useState(true);
+  const [theme, setTheme] = useState("system"); // "light" | "system" | "dark"
   const scrollRef = useRef(null);
 
-  const collectionsData = useMemo(
-    () => [projects, aboutItems, researchItems],
-    []
-  );
+  // Apply data-theme attribute to html element
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
-  const currentItems = collectionsData[activeCollectionIdx];
+  const cycleTheme = () => {
+    setTheme((prev) => {
+      if (prev === "light") return "system";
+      if (prev === "system") return "dark";
+      return "light";
+    });
+  };
+
+  const isAbout = activeCollectionIdx === 1;
 
   const filteredItems = useMemo(() => {
-    if (activeCollectionIdx !== 0) return currentItems;
-    return currentItems.filter((item) => matchesFilter(item, tagFilter));
-  }, [currentItems, activeCollectionIdx, tagFilter]);
+    if (isAbout) return [];
+    return projects.filter((item) => matchesFilter(item, tagFilter));
+  }, [isAbout, tagFilter]);
 
   const orderedItems = useMemo(() => {
     if (!expandedId) return filteredItems;
@@ -87,9 +95,10 @@ export default function ProjectGrid() {
       style={{
         width: "100vw",
         height: "100vh",
-        backgroundColor: "#ffffff",
+        backgroundColor: "var(--bg)",
         position: "relative",
         overflow: "auto",
+        transition: "background-color 0.3s ease",
       }}
     >
       <div
@@ -99,7 +108,9 @@ export default function ProjectGrid() {
           margin: "0 auto",
         }}
       >
-        {viewMode === "list" ? (
+        {isAbout ? (
+          <AboutPage />
+        ) : viewMode === "list" ? (
           <ListView items={filteredItems} onSelect={handleListSelect} />
         ) : (
           <LayoutGroup>
@@ -109,7 +120,7 @@ export default function ProjectGrid() {
                 display: "grid",
                 gridTemplateColumns: "repeat(3, 1fr)",
                 gap: "1px",
-                background: "rgba(0,0,0,0.05)",
+                background: "var(--grid-gap-color)",
               }}
             >
               <AnimatePresence mode="popLayout">
@@ -139,10 +150,12 @@ export default function ProjectGrid() {
         onInfoOpen={() => setShowInfo(true)}
         viewMode={viewMode}
         onToggleView={() => setViewMode((v) => (v === "grid" ? "list" : "grid"))}
+        theme={theme}
+        onCycleTheme={cycleTheme}
       />
 
       <AnimatePresence>
-        {showWelcome && !expandedId && (
+        {showWelcome && !expandedId && activeCollectionIdx === 0 && (
           <WelcomeCard
             onDismiss={() => setShowWelcome(false)}
             onAbout={() => {
